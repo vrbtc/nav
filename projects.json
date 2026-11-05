@@ -1,0 +1,72 @@
+{
+  "updated": "2026-11-05",
+  "groups": [
+    {
+      "id": "apps",
+      "title": "在线应用",
+      "icon": "🌐",
+      "items": [
+        {
+          "name": "多链钱包地址生成器",
+          "desc": "由原始明文恢复生成钱包地址，无需备份完整私钥",
+          "url": "https://vrbtc.github.io/crypto-address-generator/",
+          "repo": "https://github.com/vrbtc/crypto-address-generator",
+          "tag": "GitHub Pages"
+        },
+        {
+          "name": "刷卡规划助手",
+          "desc": "免息期计算 · 今日最优卡 · 固定债务还款日历",
+          "url": "https://vrbtc.github.io/credit-card-planner/",
+          "repo": "https://github.com/vrbtc/credit-card-planner",
+          "tag": "GitHub Pages"
+        },
+        {
+          "name": "银行账单提取",
+          "desc": "多银行账单自动提取与智能账单管理",
+          "url": "https://vrbtc.github.io/bank-bill-extractor/",
+          "repo": "https://github.com/vrbtc/bank-bill-extractor",
+          "tag": "GitHub Pages"
+        },
+        {
+          "name": "AES 加解密工具",
+          "desc": "本地 AES-256 加解密 Web 工具",
+          "url": "https://vrbtc.github.io/aes-crypto-web/",
+          "repo": "https://github.com/vrbtc/aes-crypto-web",
+          "tag": "GitHub Pages"
+        }
+      ]
+    },
+    {
+      "id": "admin",
+      "title": "后台管理",
+      "icon": "🛠️",
+      "items": [
+        {
+          "name": "资产监控仪表盘",
+          "desc": "多平台资产持仓统一视图 · 需登录",
+          "url": "https://b.950805.xyz",
+          "tag": "Cloudflare Tunnel"
+        },
+        {
+          "name": "仪表盘 API 文档",
+          "desc": "后端接口文档（Swagger）· 需登录",
+          "url": "https://b.950805.xyz/docs",
+          "tag": "API Docs"
+        }
+      ]
+    },
+    {
+      "id": "repos",
+      "title": "仓库总览",
+      "icon": "📦",
+      "items": [
+        {
+          "name": "全部 GitHub 仓库",
+          "desc": "查看 vrbtc 名下所有仓库列表",
+          "url": "https://github.com/vrbtc?tab=repositories",
+          "tag": "GitHub"
+        }
+      ]
+    }
+  ]
+}
