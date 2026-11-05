@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>vrbtc · 项目导航</title>
+<style>
+  :root {
+    --bg: #f5f6f8;
+    --card: #ffffff;
+    --text: #1f2328;
+    --muted: #6e7681;
+    --accent: #2563eb;
+    --accent-soft: #eff4ff;
+    --border: #e4e7ec;
+    --tag-bg: #f0f2f5;
+    --shadow: 0 1px 3px rgba(16,24,40,.07), 0 1px 2px rgba(16,24,40,.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-soft: #1c2a3f;
+      --border: #30363d;
+      --tag-bg: #21262d;
+      --shadow: 0 1px 3px rgba(0,0,0,.4);
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Segoe UI", "Microsoft YaHei", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+  .container { max-width: 1080px; margin: 0 auto; padding: 48px 24px 64px; }
+  header { text-align: center; margin-bottom: 36px; }
+  .avatar {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), #7c3aed);
+    color: #fff; font-size: 26px; font-weight: 700;
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-bottom: 14px; box-shadow: var(--shadow);
+  }
+  h1 { font-size: 26px; font-weight: 700; letter-spacing: .5px; }
+  header p { color: var(--muted); font-size: 14px; margin-top: 8px; }
+  .search-wrap { max-width: 520px; margin: 24px auto 0; position: relative; }
+  .search-wrap input {
+    width: 100%; padding: 12px 16px 12px 42px;
+    border: 1px solid var(--border); border-radius: 12px;
+    background: var(--card); color: var(--text);
+    font-size: 14px; outline: none; box-shadow: var(--shadow);
+    transition: border-color .2s;
+  }
+  .search-wrap input:focus { border-color: var(--accent); }
+  .search-wrap svg {
+    position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+    width: 16px; height: 16px; stroke: var(--muted);
+  }
+  .group { margin-top: 40px; }
+  .group-title {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 16px; font-weight: 700; margin-bottom: 16px;
+  }
+  .group-title .count {
+    font-size: 12px; font-weight: 600; color: var(--accent);
+    background: var(--accent-soft); border-radius: 999px; padding: 2px 10px;
+  }
+  .grid {
+    display: grid; gap: 14px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 18px; box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: 8px;
+    transition: transform .15s, border-color .15s;
+    position: relative; cursor: pointer; text-decoration: none; color: inherit;
+  }
+  .card:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+  .card-name { font-size: 15px; font-weight: 700; line-height: 1.3; }
+  .card-desc { font-size: 13px; color: var(--muted); line-height: 1.55; flex: 1; }
+  .card-foot { display: flex; align-items: center; gap: 8px; margin-top: 2px; }
+  .tag {
+    font-size: 11px; font-weight: 600; color: var(--muted);
+    background: var(--tag-bg); border-radius: 6px; padding: 3px 8px;
+  }
+  .repo-link {
+    margin-left: auto; display: inline-flex; align-items: center; gap: 4px;
+    font-size: 12px; color: var(--accent); text-decoration: none;
+  }
+  .repo-link:hover { text-decoration: underline; }
+  .repo-link svg { width: 13px; height: 13px; }
+  .empty { text-align: center; color: var(--muted); padding: 60px 0; font-size: 14px; }
+  .error { text-align: center; color: var(--muted); padding: 80px 24px; font-size: 14px; line-height: 2; }
+  footer {
+    text-align: center; margin-top: 56px; color: var(--muted);
+    font-size: 12px; line-height: 2;
+  }
+  footer code {
+    background: var(--tag-bg); border-radius: 5px; padding: 1px 6px;
+    font-size: 11px; color: var(--text);
+  }
+  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="avatar">V</div>
+    <h1>vrbtc · 项目导航</h1>
+    <p>所有已部署站点与后台入口的统一门户</p>
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="search" type="search" placeholder="搜索项目名称或描述…" autocomplete="off">
+    </div>
+  </header>
+
+  <main id="content">
+    <div class="error">正在加载项目列表…<br>数据源：<code>projects.json</code></div>
+  </main>
+
+  <footer>
+    数据来源 <code>projects.json</code> · 更新于 <span id="updated">—</span><br>
+    新项目接入：在 projects.json 中添加一条记录即可，页面自动渲染
+  </footer>
+</div>
+
+<script>
+(function () {
+  var el = document.getElementById('content');
+  var searchInput = document.getElementById('search');
+  var DATA = null;
+
+  fetch('projects.json', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (data) { DATA = data; render(); })
+    .catch(function () {
+      el.innerHTML = '<div class="error">projects.json 加载失败<br>请确认文件已推送到仓库且 JSON 格式正确</div>';
+    });
+
+  searchInput.addEventListener('input', function () { render(searchInput.value.trim().toLowerCase()); });
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function render(q) {
+    if (!DATA) return;
+    var html = '';
+    var total = 0;
+    (DATA.groups || []).forEach(function (g) {
+      var items = (g.items || []).filter(function (it) {
+        if (!q) return true;
+        return (it.name + ' ' + (it.desc || '') + ' ' + (it.tag || '')).toLowerCase().indexOf(q) !== -1;
+      });
+      if (!items.length) return;
+      total += items.length;
+      html += '<section class="group">'
+        + '<div class="group-title"><span>' + esc(g.icon || '') + ' ' + esc(g.title) + '</span>'
+        + '<span class="count">' + items.length + '</span></div>'
+        + '<div class="grid">';
+      items.forEach(function (it) {
+        html += '<a class="card" href="' + esc(it.url) + '" target="_blank" rel="noopener">'
+          + '<div class="card-top"><div class="card-name">' + esc(it.name) + '</div></div>'
+          + '<div class="card-desc">' + esc(it.desc || '') + '</div>'
+          + '<div class="card-foot"><span class="tag">' + esc(it.tag || '') + '</span>'
+          + (it.repo ? '<span class="repo-link" data-stop="1"><svg viewBox="0 0 16 16" fill="currentColor" width="13" height="13"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>仓库</span>' : '')
+          + '</div></a>';
+      });
+      html += '</div></section>';
+    });
+    el.innerHTML = total ? html : '<div class="empty">没有匹配的项目</div>';
+    document.getElementById('updated').textContent = DATA.updated || '—';
+  }
+
+  // 点击"仓库"链接时不要触发卡片跳转
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('.repo-link');
+    if (link) { e.preventDefault(); e.stopPropagation(); }
+  }, true);
+})();
+</script>
+</body>
+</html>
